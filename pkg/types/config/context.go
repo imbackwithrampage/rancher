@@ -128,6 +128,7 @@ func NewScaledContext(config rest.Config, opts *ScaleContextOptions) (*ScaledCon
 
 	if opts.ControllerFactory == nil {
 		controllerFactoryOpts := controllers.GetOptsFromEnv(controllers.Scaled)
+		logrus.Infof("CONTROLLERFACTORYOPTS", controllerFactoryOpts)
 		controllerFactory, err := controller.NewSharedControllerFactoryFromConfigWithOptions(enableProtobuf(&context.RESTConfig), wrangler.Scheme, controllerFactoryOpts)
 		if err != nil {
 			return nil, err
