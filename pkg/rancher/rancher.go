@@ -248,9 +248,9 @@ func (r *Rancher) Start(ctx context.Context) error {
 		return err
 	}
 
-	if err := steveapi.Setup(ctx, r.Steve, r.Wrangler); err != nil {
-		return err
-	}
+	// if err := steveapi.Setup(ctx, r.Steve, r.Wrangler); err != nil {
+	// 	return err
+	// }
 
 	if features.MCM.Enabled() {
 		if err := r.Wrangler.MultiClusterManager.Start(ctx); err != nil {
