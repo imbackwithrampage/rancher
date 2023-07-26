@@ -6,6 +6,7 @@ package config
 import (
 	"context"
 	"fmt"
+	"runtime/debug"
 	"sync"
 	"time"
 
@@ -170,6 +171,7 @@ func NewScaledContext(config rest.Config, opts *ScaleContextOptions) (*ScaledCon
 }
 
 func (c *ScaledContext) Start(ctx context.Context) error {
+	debug.PrintStack()
 	logrus.Info("Starting API controllers")
 	return c.ControllerFactory.Start(ctx, 50)
 }
